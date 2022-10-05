@@ -29,6 +29,7 @@ public class HomeWork7_1 {
 
 			while ((i = fis1.read()) != -1) {
 				count1 += j;
+				
 			}
 			System.out.printf("檔案共有%d個字元\n", count1);
 			
