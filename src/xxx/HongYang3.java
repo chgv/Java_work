@@ -39,7 +39,7 @@ public class HongYang3 {
     public static void main(String[] args) {
     
         Scanner scan = new Scanner(System.in);
-        int j =scan.nextInt();
+        int j = scan.nextInt();
       System.out.print(j+"=");
     
         fengjie(j);

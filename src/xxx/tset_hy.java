@@ -18,30 +18,38 @@ import java.util.Stack;
 輸出:false
 */
 
-public class HongYang4 {
 
+public class tset_hy {
 	public boolean isBrackets(String str) {
-		// str為偶數
+//		int s = str.length();
+		// 字串括號字元數量為偶數
 		char[] cs = str.toCharArray();
-		if (cs.length % 2 != 0) {
+		if(cs.length%2!=0){
 			return false;
-		}
-		Stack stack = new Stack();
-		HashMap map = new HashMap();
+		}	
+		// 括號存進hashmap
+		HashMap<Character, Character> map = new HashMap<>();
 		map.put(')', '(');
 		map.put(']', '[');
 		map.put('}', '{');
-		for (int i = 0; i < cs.length; i++) {
+		
+		Stack<Character> stack = new Stack<>();
+		for(int i = 0; i < cs.length; i++) {
 			char c = cs[i];
-			if (map.containsKey(c)) { // 右括號進入
-				if (stack.isEmpty() || stack.peek() != map.get(c)) {    // stack取不到值，代表右括號是第一個字元
-					return false;                                       // stack取出的值不等於該字元的value，配對失敗
+			if(map.containsKey(c)) {
+				// 右括號 stack 取出比對
+				// 第一字元不為右括號
+				if(stack.isEmpty()||stack.peek()!=map.get(c)) {
+					return false;
+				}else {
+					stack.pop();
 				}
-				stack.pop();
-			} else {
+				// 左括號存進stack
+			}else {
 				stack.push(c);
 			}
-		}
-		return stack.isEmpty();
+		}	
+		return stack.isEmpty();	
 	}
+	
 }
