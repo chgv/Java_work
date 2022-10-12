@@ -32,59 +32,44 @@ import java.util.Scanner;
 輸出:3^2*3607*3803
  */
 public class HongYang3 {
-	private static Map<Integer,Integer> map = new HashMap<Integer,Integer>();
-    private static List<Integer> yinshu = new ArrayList<Integer>();
-    
+//	private static Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+//	private static List<Integer> list = new ArrayList<Integer>();
 
-    public static void main(String[] args) {
-    
-        Scanner scan = new Scanner(System.in);
-        int j = scan.nextInt();
-      System.out.print(j+"=");
-    
-        fengjie(j);
-        playResult(map,yinshu);
-        
-    }
-    
-     public static void fengjie(int n){
-         int flag=1;
-         while (n > 1) {
-                for (int i = 2; i <= n; i++) { 
-                    if (n % i == 0) { 
-                        flag=i;
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		num(n);
+	}
 
-                        if(!yinshu.contains(i)){
-                            yinshu.add(i);
-                        }
-                        
-                        if(!map.containsKey(i)){
-                            map.put(i, 1);
-                            
-                        }else{
-                            map.put(i, map.get(i)+1);
-                        }
-
-                        break;
-                    }
-                }
-                n = n / flag; 
-            }
-         
-
-            }
-     
-    public static void playResult(Map<Integer,Integer> map,List<Integer> yinshu){
-       String result ="";
-        for(int i=0;i<yinshu.size();i++){
-            if(map.get(yinshu.get(i))!=1){
-                result+="*"+yinshu.get(i)+"^"+map.get(yinshu.get(i));
-            }else{
-                result+="*"+yinshu.get(i);
-            }
-            
-        }  
-        
-        System.out.println(result.substring(1));
- }
+	public static void num(int n) {
+		Map<Integer, Integer> map = new HashMap<>();
+		List<Integer> list = new ArrayList<>();
+		int flag = 1;
+		while (n > 1) {
+			for (int i = 2; i <= n; i++) {
+				if (n % i == 0) {
+					flag = i;
+					if (!list.contains(i)) {
+						list.add(i);
+					}
+					  if (!map.containsKey(i)) {
+						map.put(i, 1);
+					} else {
+						map.put(i, map.get(i) + 1);
+					}
+					break;
+				}
+			}
+			n = n / flag;
+		}
+		String result = "";
+		for (Integer e : list) {
+			if (map.get(e) != 1) {
+				result += "*" + e + "^" + map.get(e);
+			} else {
+				result += "*" + e;
+			}
+		}
+		System.out.println(result.substring(1));
+	}
 }

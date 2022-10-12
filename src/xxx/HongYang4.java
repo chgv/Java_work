@@ -19,15 +19,15 @@ import java.util.Stack;
 */
 
 public class HongYang4 {
-
+	
 	public boolean isBrackets(String str) {
 		// str為偶數
 		char[] cs = str.toCharArray();
 		if (cs.length % 2 != 0) {
 			return false;
 		}
-		Stack stack = new Stack();
-		HashMap map = new HashMap();
+		Stack<Character> stack = new Stack<>();
+		HashMap<Character,Character> map = new HashMap<>();
 		map.put(')', '(');
 		map.put(']', '[');
 		map.put('}', '{');

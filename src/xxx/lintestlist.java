@@ -5,7 +5,7 @@ import java.util.*;
 public class lintestlist {
 public static void main(String[] args) {
 	var names = new ArrayList();
-	CollectNameTo(names);
+	collectNameTo(names);
 	System.out.println("訪客名單:");
 	printUpperCase(names);
 }
