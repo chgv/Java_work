@@ -12,9 +12,10 @@ import java.util.*;
  * 2.輸入:924 輸出:2^2*3*7*11 3.輸入:123456789 輸出:3^2*3607*3803
  */
 public class 質數 {
-	public static void num(int n) {
+	public String num(String num) {
 		ArrayList<Integer> list = new ArrayList<>();
 		HashMap<Integer, Integer> map = new HashMap<>();
+		int n = Integer.parseInt(num);
 		int flag = 1;
 		while (n > 1) {
 			for (int i = 2; i <= n; i++) {
@@ -42,12 +43,13 @@ public class 質數 {
 				str += "*" + e;
 			}
 		}
-		System.out.println(str.substring(1));
+		return str.substring(1);
 	}
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		int n = sc.nextInt();
-		num(n);
+		String num = sc.next();
+		質數 n = new 質數();
+		System.out.println(n.num(num));
 	}
 }
